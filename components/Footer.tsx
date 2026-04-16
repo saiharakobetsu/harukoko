@@ -12,7 +12,7 @@ export default function Footer() {
         <div style={{ maxWidth: "960px", margin: "0 auto" }}>
           {/* ロゴ */}
           <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "20px" }}>
-            <Image src="/logo.png" alt="はるここ ロゴ" width={36} height={36} style={{ objectFit: "contain" }} />
+            <Image src="/logo.png" alt="はるここ ロゴ" width={44} height={44} style={{ objectFit: "contain" }} />
             <span style={{ fontWeight: "bold", fontSize: "18px", color: "var(--color-green)" }}>
               はるここ
             </span>

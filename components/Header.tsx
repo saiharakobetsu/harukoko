@@ -34,7 +34,7 @@ export default function Header() {
       }}>
         {/* ロゴ */}
         <Link href="/" style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-          <Image src="/logo.png" alt="はるここ ロゴ" width={40} height={40} style={{ objectFit: "contain" }} />
+          <Image src="/logo.png" alt="はるここ ロゴ" width={48} height={48} style={{ objectFit: "contain" }} />
           <span style={{
             fontWeight: "bold",
             fontSize: "20px",
