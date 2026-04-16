@@ -12,7 +12,7 @@ export async function POST(request: Request) {
 
   const { error } = await resend.emails.send({
     from: "はるここ お問い合わせフォーム <onboarding@resend.dev>",
-    to: "g.saihara@saihara-kobetsu.jp",
+    to: "g.hayakawa56@gmail.com",
     replyTo: email,
     subject: `【はるここ お問い合わせ】${childName} 様`,
     text: `
