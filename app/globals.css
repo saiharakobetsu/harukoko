@@ -1,26 +1,349 @@
 @import "tailwindcss";
 
+/* ========================================
+   はるここ デザイントークン
+======================================== */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-green:      #3aafa9;
+  --color-green-light:#e8f7f5;
+  --color-orange:     #f5a96a;
+  --color-orange-dark:#e08840;
+  --color-text:       #444;
+  --color-white:      #fafaf8;
+  --font-base: "Zen Maru Gothic", "游ゴシック", Meiryo, sans-serif;
+  --font-size-base: 17px;
+  --max-width: 960px;
+  --section-padding: 64px 5%;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ========================================
+   ベース
+======================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  font-size: var(--font-size-base);
+  font-family: var(--font-base);
+  color: var(--color-text);
+  background: var(--color-white);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-white);
+  line-height: 1.85;
+  font-weight: 500;
+}
+
+a {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+a:hover { opacity: 0.8; }
+
+img { max-width: 100%; height: auto; }
+
+.inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+section { padding: var(--section-padding); }
+
+/* ========================================
+   見出し
+======================================== */
+h2.section-title {
+  font-size: 26px;
+  font-weight: bold;
+  color: var(--color-green);
+  text-align: center;
+  margin-bottom: 0.4em;
+  letter-spacing: 0.05em;
+}
+
+h2.section-title::after {
+  content: '';
+  display: block;
+  width: 48px;
+  height: 4px;
+  background: var(--color-orange);
+  border-radius: 2px;
+  margin: 10px auto 0;
+}
+
+h3.card-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--color-green);
+  margin-bottom: 0.4em;
+}
+
+/* ========================================
+   セクション背景
+======================================== */
+.section-white  { background: #fff; }
+.section-light  { background: var(--color-green-light); }
+.section-orange { background: #fff8f2; }
+
+/* ========================================
+   ページタイトルバー
+======================================== */
+.page-title-bar {
+  background: var(--color-green);
+  padding: 20px 5%;
+}
+
+.page-title-bar h1 {
+  font-size: 22px;
+  font-weight: bold;
+  color: #fff;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+/* ========================================
+   ボタン
+======================================== */
+a.btn-main,
+button.btn-main {
+  display: inline-block;
+  background: var(--color-orange);
+  color: #fff;
+  font-weight: bold;
+  font-size: 17px;
+  padding: 14px 40px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  border-bottom: 3px solid var(--color-orange-dark);
+  text-align: center;
+  transition: opacity 0.2s;
+}
+
+a.btn-main:hover,
+button.btn-main:hover { opacity: 0.85; }
+
+a.btn-outline {
+  display: inline-block;
+  color: var(--color-green);
+  font-weight: bold;
+  font-size: 16px;
+  padding: 10px 28px;
+  border-radius: 50px;
+  border: 2px solid var(--color-green);
+  text-align: center;
+  transition: all 0.2s;
+}
+
+a.btn-outline:hover {
+  background: var(--color-green);
+  color: #fff;
+  opacity: 1;
+}
+
+/* ========================================
+   特徴カード
+======================================== */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.feature-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 28px 24px;
+  box-shadow: 0 2px 12px rgba(58, 175, 169, 0.10);
+  border-top: 4px solid var(--color-green);
+}
+
+.feature-icon {
+  font-size: 36px;
+  margin-bottom: 12px;
+}
+
+/* ========================================
+   料金テーブル
+======================================== */
+.price-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 32px;
+}
+
+.price-table th,
+.price-table td {
+  padding: 12px 16px;
+  border: 1px solid #d0ece9;
+  font-size: 15px;
+  text-align: center;
+}
+
+.price-table thead th {
+  background: var(--color-green);
+  color: #fff;
+  font-weight: bold;
+}
+
+.price-table tbody th {
+  background: var(--color-green-light);
+  font-weight: bold;
+  text-align: left;
+}
+
+.price-table tbody td {
+  background: #fff;
+  font-weight: bold;
+}
+
+/* ========================================
+   フロー
+======================================== */
+.flow-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.flow-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 16px 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.flow-num {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--color-orange);
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ========================================
+   フォーム
+======================================== */
+.form-group { margin-bottom: 20px; }
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  font-size: 15px;
+  margin-bottom: 6px;
+  color: #555;
+}
+
+.form-group label span.required {
+  display: inline-block;
+  background: var(--color-orange);
+  color: #fff;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 1px 6px;
+  border-radius: 3px;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #c8e8e6;
+  border-radius: 8px;
+  font-size: 16px;
+  font-family: var(--font-base);
+  background: #fff;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--color-green);
+  box-shadow: 0 0 0 3px rgba(58, 175, 169, 0.15);
+}
+
+.form-error {
+  color: #e05555;
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+/* ========================================
+   特商法テーブル
+======================================== */
+.tokushoho-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tokushoho-table th,
+.tokushoho-table td {
+  padding: 12px 16px;
+  border: 1px solid #d0ece9;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.tokushoho-table th {
+  background: var(--color-green-light);
+  font-weight: bold;
+  white-space: nowrap;
+  width: 30%;
+  vertical-align: top;
+}
+
+.tokushoho-table td { background: #fff; }
+
+/* ========================================
+   フッターナビ
+======================================== */
+.footer-nav {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+}
+
+.footer-nav li a {
+  font-size: 13px;
+  color: #888;
+}
+
+.footer-nav li a:hover { color: var(--color-green); }
+
+/* ========================================
+   レスポンシブ
+======================================== */
+@media screen and (max-width: 768px) {
+  :root {
+    --font-size-base: 15px;
+    --section-padding: 40px 5%;
+  }
+  h2.section-title { font-size: 22px; }
+  .feature-grid { grid-template-columns: 1fr; }
 }

@@ -1,65 +1,223 @@
-import Image from "next/image";
+import Link from "next/link";
+
+const features = [
+  {
+    icon: "🏠",
+    title: "外出不要・好きな時間に",
+    body: "オンライン教材「すらら」を活用し、自宅のリラックスした環境で学習。登校できなくても、学びをとめない。",
+  },
+  {
+    icon: "📋",
+    title: "無理のない学習計画",
+    body: "体調や気分に合わせて個別に計画を設計。固定時間の授業はなし。できることからひとつずつ積み重ねます。",
+  },
+  {
+    icon: "👨‍👩‍👧",
+    title: "ご家族への包括サポート",
+    body: "出席扱い手続きや学校との連絡対応、保護者向けの相談にも対応。お子さんだけでなく、家族全体を支えます。",
+  },
+];
+
+const flow = [
+  { step: "お問い合わせ", desc: "フォームまたはお電話でお気軽にご連絡ください。" },
+  { step: "無料相談",     desc: "お子さんの状況をお聞きし、サービスのご説明をします（約30分）。" },
+  { step: "2週間体験",   desc: "実際に学習を体験していただけます。費用はかかりません。" },
+  { step: "正式申込み",  desc: "ご納得いただいた上でお申し込みください。入会金は無料です。" },
+];
+
+const prices = [
+  { grade: "小学生（全学年）", monthly: "13,200円" },
+  { grade: "中学1年生",       monthly: "15,400円" },
+  { grade: "中学2年生",       monthly: "17,600円" },
+  { grade: "中学3年生",       monthly: "19,800円" },
+];
+
+const faqs = [
+  {
+    q: "不登校の期間が長くても大丈夫ですか？",
+    a: "はい、大丈夫です。学力や生活リズムを問わず、今のお子さんの状態からスタートします。",
+  },
+  {
+    q: "親が仕事中でも利用できますか？",
+    a: "お子さんだけで学習できる仕組みになっています。ご不安な点はご相談ください。",
+  },
+  {
+    q: "出席扱いになりますか？",
+    a: "一定の条件のもと、学校に出席扱いとして認められるケースがあります。手続きのご相談にも応じます。",
+  },
+  {
+    q: "途中でやめることはできますか？",
+    a: "毎月末日の前日までにご連絡いただければ、翌月から解約できます。縛りはありません。",
+  },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <>
+      {/* ===== ヒーロー ===== */}
+      <section style={{
+        background: "linear-gradient(135deg, var(--color-green-light) 0%, #fff8f2 100%)",
+        padding: "80px 5% 64px",
+        textAlign: "center",
+      }}>
+        <div style={{ maxWidth: "720px", margin: "0 auto" }}>
+          <p style={{
+            display: "inline-block",
+            background: "var(--color-orange)",
+            color: "#fff",
+            fontSize: "14px",
+            fontWeight: "bold",
+            padding: "4px 16px",
+            borderRadius: "50px",
+            marginBottom: "24px",
+          }}>
+            不登校の小中学生専門
+          </p>
+          <h1 style={{
+            fontSize: "clamp(26px, 5vw, 40px)",
+            fontWeight: "bold",
+            color: "#333",
+            lineHeight: "1.5",
+            marginBottom: "20px",
+          }}>
+            学校に行けない日も<br />
+            <span style={{ color: "var(--color-green)" }}>学びをとめない</span>
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p style={{
+            fontSize: "17px",
+            color: "#666",
+            lineHeight: "1.85",
+            marginBottom: "36px",
+          }}>
+            一人ひとりのペースに合わせた学習計画と、<br />
+            170名以上の不登校家庭を支えてきた個別サポート。<br />
+            お子さんとご家族に寄り添います。
+          </p>
+          <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
+            <Link href="/contact" className="btn-main">無料相談・体験授業へ</Link>
+            <Link href="/#service" className="btn-outline">サービスを見る</Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== 3つの特徴 ===== */}
+      <section id="service" className="section-white">
+        <div className="inner">
+          <h2 className="section-title">はるここの３つの特徴</h2>
+          <div className="feature-grid">
+            {features.map((f) => (
+              <div key={f.title} className="feature-card">
+                <div className="feature-icon">{f.icon}</div>
+                <h3 className="card-title">{f.title}</h3>
+                <p style={{ fontSize: "15px", lineHeight: "1.8", color: "#555" }}>{f.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ===== ご利用の流れ ===== */}
+      <section className="section-light">
+        <div className="inner">
+          <h2 className="section-title">ご利用の流れ</h2>
+          <ul className="flow-list">
+            {flow.map((item, i) => (
+              <li key={i} className="flow-item">
+                <div className="flow-num">{i + 1}</div>
+                <div>
+                  <p style={{ fontWeight: "bold", fontSize: "16px", marginBottom: "4px" }}>{item.step}</p>
+                  <p style={{ fontSize: "15px", color: "#555" }}>{item.desc}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* ===== 料金 ===== */}
+      <section id="price" className="section-white">
+        <div className="inner">
+          <h2 className="section-title">料金（税込・入会金無料）</h2>
+          <p style={{ textAlign: "center", fontSize: "15px", color: "#666", marginTop: "16px" }}>
+            教材費（すらら）込み。月途中入会でも日割り計算なし、翌月から正規料金です。
+          </p>
+          <div style={{ overflowX: "auto" }}>
+            <table className="price-table">
+              <thead>
+                <tr>
+                  <th>学年</th>
+                  <th>月額</th>
+                </tr>
+              </thead>
+              <tbody>
+                {prices.map((p) => (
+                  <tr key={p.grade}>
+                    <th>{p.grade}</th>
+                    <td style={{ fontSize: "17px" }}><b>{p.monthly}</b></td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p style={{ fontSize: "13px", color: "#888", marginTop: "12px", textAlign: "center" }}>
+            ※ 管理費は別途かかりません。まずはお気軽にご相談ください。
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* ===== よくある質問 ===== */}
+      <section id="faq" className="section-light">
+        <div className="inner">
+          <h2 className="section-title">よくある質問</h2>
+          <div style={{ marginTop: "36px", display: "flex", flexDirection: "column", gap: "20px" }}>
+            {faqs.map((faq, i) => (
+              <div key={i} style={{
+                background: "#fff",
+                borderRadius: "12px",
+                padding: "20px 24px",
+                boxShadow: "0 2px 8px rgba(0,0,0,0.06)",
+              }}>
+                <p style={{ fontWeight: "bold", color: "var(--color-green)", marginBottom: "8px", fontSize: "16px" }}>
+                  Q. {faq.q}
+                </p>
+                <p style={{ fontSize: "15px", color: "#555", lineHeight: "1.8" }}>
+                  A. {faq.a}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* ===== CTA ===== */}
+      <section style={{
+        background: "var(--color-green)",
+        padding: "64px 5%",
+        textAlign: "center",
+        color: "#fff",
+      }}>
+        <div style={{ maxWidth: "600px", margin: "0 auto" }}>
+          <h2 style={{ fontSize: "26px", fontWeight: "bold", marginBottom: "16px" }}>
+            まずは無料でご相談ください
+          </h2>
+          <p style={{ fontSize: "16px", marginBottom: "32px", opacity: 0.9, lineHeight: 1.8 }}>
+            お子さんの状況をお聞きし、はるここが合うかどうかを<br />
+            一緒に考えます。無理な勧誘は一切しません。
+          </p>
+          <Link href="/contact" style={{
+            display: "inline-block",
+            background: "#fff",
+            color: "var(--color-green)",
+            fontWeight: "bold",
+            fontSize: "17px",
+            padding: "14px 40px",
+            borderRadius: "50px",
+            borderBottom: "3px solid rgba(0,0,0,0.1)",
+          }}>
+            お問い合わせ・無料相談
+          </Link>
+        </div>
+      </section>
+    </>
   );
 }

@@ -1,0 +1,40 @@
+import { Resend } from "resend";
+import { NextResponse } from "next/server";
+
+export async function POST(request: Request) {
+  const resend = new Resend(process.env.RESEND_API_KEY);
+  const { childName, nameKana, email, phone, grade, message } =
+    await request.json();
+
+  if (!childName || !nameKana || !email || !phone || !grade) {
+    return NextResponse.json({ error: "必須項目が不足しています" }, { status: 400 });
+  }
+
+  const { error } = await resend.emails.send({
+    from: "はるここ お問い合わせフォーム <onboarding@resend.dev>",
+    to: "g.saihara@saihara-kobetsu.jp",
+    replyTo: email,
+    subject: `【はるここ お問い合わせ】${childName} 様`,
+    text: `
+はるここ お問い合わせフォームより送信がありました。
+
+━━━━━━━━━━━━━━━━━━━━━━
+お子さまのお名前: ${childName}
+お名前（カナ）: ${nameKana}
+メールアドレス: ${email}
+電話番号: ${phone}
+学年: ${grade}
+ご相談内容:
+${message || "（なし）"}
+━━━━━━━━━━━━━━━━━━━━━━
+
+返信先: ${email}
+    `.trim(),
+  });
+
+  if (error) {
+    return NextResponse.json({ error: "送信に失敗しました" }, { status: 500 });
+  }
+
+  return NextResponse.json({ success: true });
+}
