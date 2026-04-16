@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -11,11 +12,7 @@ export default function Footer() {
         <div style={{ maxWidth: "960px", margin: "0 auto" }}>
           {/* ロゴ */}
           <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "20px" }}>
-            <span style={{
-              display: "inline-flex", alignItems: "center", justifyContent: "center",
-              width: "32px", height: "32px",
-              background: "var(--color-green)", borderRadius: "50%", fontSize: "18px",
-            }}>🌱</span>
+            <Image src="/logo.png" alt="はるここ ロゴ" width={36} height={36} style={{ objectFit: "contain" }} />
             <span style={{ fontWeight: "bold", fontSize: "18px", color: "var(--color-green)" }}>
               はるここ
             </span>

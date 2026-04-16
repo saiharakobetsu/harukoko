@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 
 const navItems = [
@@ -33,16 +34,7 @@ export default function Header() {
       }}>
         {/* ロゴ */}
         <Link href="/" style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-          <span style={{
-            display: "inline-flex",
-            alignItems: "center",
-            justifyContent: "center",
-            width: "36px",
-            height: "36px",
-            background: "var(--color-green)",
-            borderRadius: "50%",
-            fontSize: "20px",
-          }}>🌱</span>
+          <Image src="/logo.png" alt="はるここ ロゴ" width={40} height={40} style={{ objectFit: "contain" }} />
           <span style={{
             fontWeight: "bold",
             fontSize: "20px",
