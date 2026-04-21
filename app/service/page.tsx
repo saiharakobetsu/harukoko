@@ -169,6 +169,83 @@ export default function ServicePage() {
         </div>
       </section>
 
+      {/* ===== 出席扱い制度への対応 ===== */}
+      <section className="section-white">
+        <div className="inner" style={{ maxWidth: "760px" }}>
+          <h2 className="section-title">出席扱い制度への対応</h2>
+          <article style={{
+            marginTop: "36px",
+            background: "#fff",
+            borderRadius: "16px",
+            padding: "32px 36px",
+            boxShadow: "0 2px 12px rgba(58,175,169,0.08)",
+            borderLeft: "5px solid var(--color-green)",
+          }}>
+            <p style={{ fontSize: "15px", color: "#444", lineHeight: "2", marginBottom: "16px", fontWeight: "bold" }}>
+              ICT教材を活用した学習が、学校の「出席」として認められる制度があります。
+            </p>
+            <p style={{ fontSize: "15px", color: "#555", lineHeight: "2" }}>
+              「はるここ」は出席扱い制度の活用実績が多い「すらら」を使用し、学校に相談する際のアドバイスや報告書の作成もサポートいたします。
+            </p>
+          </article>
+        </div>
+      </section>
+
+      {/* ===== オンライン教材「すらら」について ===== */}
+      <section className="section-light">
+        <div className="inner" style={{ maxWidth: "760px" }}>
+          <h2 className="section-title">オンライン教材「すらら」について</h2>
+          <article style={{
+            marginTop: "36px",
+            background: "#fff",
+            borderRadius: "16px",
+            padding: "32px 36px",
+            boxShadow: "0 2px 12px rgba(58,175,169,0.08)",
+            borderLeft: "5px solid var(--color-green)",
+          }}>
+            <p style={{ fontSize: "15px", color: "#555", lineHeight: "2", marginBottom: "16px" }}>
+              「はるここ」では、不登校のご家庭と相性が良い、無学年式オンライン教材「すらら」を活用します。
+            </p>
+            <p style={{ fontSize: "15px", color: "#555", lineHeight: "2", marginBottom: "20px" }}>
+              インターネットの環境があれば、お持ちのPCやタブレットで好きな時に学習できます。
+            </p>
+            <ul style={{ listStyle: "none", marginBottom: "24px", display: "flex", flexDirection: "column", gap: "10px" }}>
+              {[
+                "学年関係なく、どこからでも復習できる",
+                "自分のペースで進められる",
+                "「出席扱い」に認定された事例が多い",
+              ].map((item) => (
+                <li key={item} style={{
+                  fontSize: "15px",
+                  color: "#444",
+                  fontWeight: "bold",
+                  paddingLeft: "20px",
+                  position: "relative",
+                }}>
+                  <span style={{
+                    position: "absolute",
+                    left: 0,
+                    color: "var(--color-green)",
+                  }}>•</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <p style={{
+              fontSize: "15px",
+              color: "#333",
+              fontWeight: "bold",
+              lineHeight: "1.9",
+              paddingTop: "20px",
+              borderTop: "1px dashed var(--color-green-light)",
+            }}>
+              「何から始めれば…」という不安を、<br />
+              <span style={{ color: "var(--color-orange-dark)" }}>「これならできそう！」という安心に変えていきます。</span>
+            </p>
+          </article>
+        </div>
+      </section>
+
       {/* ===== サービスに含まれるもの ===== */}
       <section className="section-white">
         <div className="inner" style={{ maxWidth: "760px" }}>
