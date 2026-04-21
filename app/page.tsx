@@ -19,10 +19,30 @@ const features = [
 ];
 
 const flow = [
-  { step: "お問い合わせ", desc: "フォームまたは公式LINEよりお気軽にご連絡ください。" },
-  { step: "無料相談",     desc: "お子さんの状況をお聞きし、サービスのご説明をします（約30分）。" },
-  { step: "2週間体験",   desc: "実際に学習を体験していただけます。費用はかかりません。" },
-  { step: "正式申込み",  desc: "ご納得いただいた上でお申し込みください。入会金は無料です。" },
+  {
+    step: "お問い合わせ",
+    desc: "フォームまたは公式LINEから、今の状況やお悩みをお知らせください。",
+    bullets: ["まだ整理できていなくてもOK", "「ちょっと聞いてみたい」だけでも大丈夫"],
+    note: null,
+  },
+  {
+    step: "無料相談（オンライン）",
+    desc: "GoogleMeetやLINEでオンライン面談を行います。カメラオフでも大丈夫です（約30分）。",
+    bullets: ["お子さんの様子・学習への不安をお聞きします", "今後の学習の方向性や出席扱い制度も一緒に整理します"],
+    note: null,
+  },
+  {
+    step: "2週間体験",
+    desc: "学習計画を一緒に作り、すらら2週間体験をスタート。費用はかかりません。",
+    bullets: ["サポートの感触やお子さんの様子を確認しながらゆっくりご検討ください"],
+    note: "こちらから入会の催促は一切しません。",
+  },
+  {
+    step: "正式お申し込み",
+    desc: "ご納得いただいた上でお申し込みください。入会金は無料です。",
+    bullets: ["入会日の決定・料金お振込み・口座振替の登録"],
+    note: "引き続き、お子さんのペースで無理なく学んでいきましょう。",
+  },
 ];
 
 const prices = [
@@ -377,13 +397,34 @@ export default function Home() {
       <section className="section-light">
         <div className="inner">
           <h2 className="section-title">ご利用の流れ</h2>
-          <ul className="flow-list">
+          <p style={{ textAlign: "center", fontSize: "15px", color: "#666", marginTop: "12px", lineHeight: "1.9" }}>
+            いきなり契約する必要はありません。<br />
+            まずは「話してみる」ところからで大丈夫です。
+          </p>
+          <ul className="flow-list" style={{ marginTop: "32px" }}>
             {flow.map((item, i) => (
-              <li key={i} className="flow-item">
-                <div className="flow-num">{i + 1}</div>
-                <div>
-                  <p style={{ fontWeight: "bold", fontSize: "16px", marginBottom: "4px" }}>{item.step}</p>
-                  <p style={{ fontSize: "15px", color: "#555" }}>{item.desc}</p>
+              <li key={i} className="flow-item" style={{ flexDirection: "column", alignItems: "stretch", gap: "0" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "16px", marginBottom: "10px" }}>
+                  <div className="flow-num" style={{ flexShrink: 0 }}>{i + 1}</div>
+                  <p style={{ fontWeight: "bold", fontSize: "16px" }}>{item.step}</p>
+                </div>
+                <div style={{ paddingLeft: "52px" }}>
+                  <p style={{ fontSize: "15px", color: "#555", lineHeight: "1.8", marginBottom: "10px" }}>{item.desc}</p>
+                  {item.bullets.length > 0 && (
+                    <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "4px", marginBottom: item.note ? "10px" : "0" }}>
+                      {item.bullets.map((b) => (
+                        <li key={b} style={{ fontSize: "14px", color: "#666", paddingLeft: "14px", position: "relative" }}>
+                          <span style={{ position: "absolute", left: 0, color: "var(--color-green)" }}>•</span>
+                          {b}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                  {item.note && (
+                    <p style={{ fontSize: "13px", color: "var(--color-orange-dark)", fontWeight: "bold", marginTop: "6px" }}>
+                      ✦ {item.note}
+                    </p>
+                  )}
                 </div>
               </li>
             ))}
