@@ -19,7 +19,7 @@ const features = [
 ];
 
 const flow = [
-  { step: "お問い合わせ", desc: "フォームまたはお電話でお気軽にご連絡ください。" },
+  { step: "お問い合わせ", desc: "フォームまたは公式LINEよりお気軽にご連絡ください。" },
   { step: "無料相談",     desc: "お子さんの状況をお聞きし、サービスのご説明をします（約30分）。" },
   { step: "2週間体験",   desc: "実際に学習を体験していただけます。費用はかかりません。" },
   { step: "正式申込み",  desc: "ご納得いただいた上でお申し込みください。入会金は無料です。" },
@@ -283,6 +283,11 @@ export default function Home() {
               }}>
                 不登校サポートに累計１７０名以上関わってきた経験から、「遅れを取り戻そうとすること」より「学びを止めないこと」が子どもの自信につながると確信しています。お子さんのペースを一緒に見つけていきましょう。
               </p>
+              <div style={{ marginTop: "24px" }}>
+                <Link href="/message" className="btn-outline">
+                  代表の想いを読む →
+                </Link>
+              </div>
             </div>
           </div>
         </div>
@@ -311,7 +316,7 @@ export default function Home() {
         <div className="inner">
           <h2 className="section-title">料金（税込・入会金無料）</h2>
           <p style={{ textAlign: "center", fontSize: "15px", color: "#666", marginTop: "16px" }}>
-            教材費（すらら）込み。月途中入会でも日割り計算なし、翌月から正規料金です。
+            教材費（すらら）込み。月途中入会の場合、初月は日割り計算。翌月から正規料金です。
           </p>
           <div style={{ overflowX: "auto" }}>
             <table className="price-table">
