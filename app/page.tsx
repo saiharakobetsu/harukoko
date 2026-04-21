@@ -174,6 +174,86 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ===== こんな方におすすめ ===== */}
+      <section className="section-orange">
+        <div className="inner" style={{ maxWidth: "720px" }}>
+          <h2 className="section-title">こんなご家庭におすすめです</h2>
+          <ul style={{ listStyle: "none", marginTop: "36px" }}>
+            {[
+              "学校に行ってなくても「学び」は止めたくない",
+              "家庭学習を何から始めればいいかわからない",
+              "子どものペースを大切に、少しずつ学んでほしい",
+              "見守ると決めたけど、どこか不安を感じている",
+              "家庭での学習を出席扱いにしたい",
+            ].map((item) => (
+              <li key={item} style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "14px",
+                padding: "14px 0",
+                borderBottom: "1px solid #e8ddd4",
+                fontSize: "clamp(14px, 2vw, 16px)",
+                color: "#444",
+              }}>
+                <span style={{ color: "var(--color-green)", fontWeight: "bold", fontSize: "20px", flexShrink: 0, lineHeight: 1 }}>✓</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+
+          <div style={{ borderTop: "2px dashed #ddd", margin: "44px 0 36px" }} />
+
+          <div style={{ display: "flex", flexDirection: "column", gap: "24px", marginBottom: "36px" }}>
+            <div>
+              <p style={{ fontSize: "15px", color: "#888", marginBottom: "6px" }}>子どもが</p>
+              <p style={{
+                fontSize: "clamp(15px, 2.5vw, 17px)",
+                fontWeight: "bold",
+                color: "#333",
+                display: "inline",
+                background: "linear-gradient(transparent 55%, rgba(245,169,106,0.35) 55%)",
+                lineHeight: "2.2",
+              }}>
+                「自分のペースで、やってみよう」と思えること
+              </p>
+            </div>
+            <div>
+              <p style={{ fontSize: "15px", color: "#888", marginBottom: "6px" }}>保護者の方が</p>
+              <p style={{
+                fontSize: "clamp(15px, 2.5vw, 17px)",
+                fontWeight: "bold",
+                color: "#333",
+                display: "inline",
+                background: "linear-gradient(transparent 55%, rgba(245,169,106,0.35) 55%)",
+                lineHeight: "2.2",
+              }}>
+                「これでいいんだ」と安心できること
+              </p>
+            </div>
+          </div>
+
+          <p style={{ fontSize: "16px", color: "#555", lineHeight: "2", marginBottom: "28px" }}>
+            その土台を、時間をかけて整えていくサポートです。
+          </p>
+
+          <blockquote style={{
+            background: "#fff",
+            borderLeft: "4px solid var(--color-orange)",
+            borderRadius: "0 12px 12px 0",
+            padding: "20px 24px",
+            boxShadow: "0 2px 8px rgba(0,0,0,0.05)",
+          }}>
+            <p style={{ fontSize: "clamp(14px, 2vw, 16px)", color: "#555", lineHeight: "2" }}>
+              「今はスピードよりも、<br />
+              <strong style={{ color: "#333" }}>安心して学びに向かえる状態をつくりたい」</strong>
+            </p>
+            <p style={{ fontSize: "15px", color: "#777", lineHeight: "1.9", marginTop: "12px" }}>
+              そう感じているご家庭を、<br />はるここは心から支えていきたいと考えています。
+            </p>
+          </blockquote>
+        </div>
+      </section>
+
       {/* ===== 3つの特徴 ===== */}
       <section id="service" className="section-white">
         <div className="inner">

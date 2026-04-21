@@ -246,6 +246,39 @@ export default function ServicePage() {
         </div>
       </section>
 
+      {/* ===== 一般的な塾との違い ===== */}
+      <section className="section-white">
+        <div className="inner" style={{ maxWidth: "760px" }}>
+          <h2 className="section-title">一般的なオンライン家庭教師・塾との違い</h2>
+          <div style={{ overflowX: "auto", marginTop: "36px" }}>
+            <table style={{ width: "100%", borderCollapse: "collapse", minWidth: "480px" }}>
+              <thead>
+                <tr>
+                  <th style={{ padding: "14px 16px", background: "#f0ede8", border: "1px solid #ddd", fontSize: "13px", color: "#888", width: "22%", fontWeight: "bold" }}>比較項目</th>
+                  <th style={{ padding: "14px 16px", background: "#f0ede8", border: "1px solid #ddd", fontSize: "14px", color: "#666", width: "37%" }}>一般的なオンライン<br />家庭教師・塾</th>
+                  <th style={{ padding: "14px 16px", background: "var(--color-green)", border: "1px solid var(--color-green)", fontSize: "14px", color: "#fff", fontWeight: "bold", width: "41%" }}>はるここの伴走サポート</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  { label: "主な目的", general: "学力の向上・志望校合格", harukoko: "安心して学べる土台作り" },
+                  { label: "学習時間", general: "決められた時間に授業を受ける", harukoko: "好きな時間にいつでも学べる" },
+                  { label: "お子さんとの関わり", general: "教科の内容を「教える」", harukoko: "無理のない柔軟な学習計画" },
+                  { label: "保護者サポート", general: "定期的な進捗報告が一般的", harukoko: "お悩み相談・学校対応の伴走" },
+                  { label: "出席扱い対応", general: "基本はご家庭にお任せ", harukoko: "「すらら」を活用した安心サポート\n（学校相談のポイント・学習レポート作成等）" },
+                ].map((row, i) => (
+                  <tr key={i}>
+                    <td style={{ padding: "14px 16px", border: "1px solid #ddd", fontSize: "13px", fontWeight: "bold", textAlign: "center", background: "#fafafa", color: "#666" }}>{row.label}</td>
+                    <td style={{ padding: "14px 16px", border: "1px solid #ddd", fontSize: "14px", textAlign: "center", color: "#888", background: "#fff", lineHeight: "1.7" }}>{row.general}</td>
+                    <td style={{ padding: "14px 16px", border: "1px solid #c2e8e6", fontSize: "14px", fontWeight: "bold", textAlign: "center", color: "#2e7d7a", background: "var(--color-green-light)", lineHeight: "1.7", whiteSpace: "pre-line" }}>{row.harukoko}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
       {/* ===== サービスに含まれるもの ===== */}
       <section className="section-white">
         <div className="inner" style={{ maxWidth: "760px" }}>
