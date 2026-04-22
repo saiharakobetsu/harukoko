@@ -8,7 +8,7 @@ const navItems = [
   { label: "ホーム",         href: "/" },
   { label: "サービス紹介",   href: "/service" },
   { label: "料金",           href: "/#price" },
-  { label: "よくある質問",   href: "/#faq" },
+  { label: "よくある質問",   href: "/faq" },
   { label: "お問い合わせ",   href: "/contact" },
 ];
 
