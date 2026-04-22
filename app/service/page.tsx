@@ -260,7 +260,7 @@ export default function ServicePage() {
                 {[
                   { label: "主な目的", general: "学力の向上・志望校合格", harukoko: "安心して学べる土台作り" },
                   { label: "学習時間", general: "決められた時間に授業を受ける", harukoko: "好きな時間にいつでも学べる" },
-                  { label: "お子さんとの関わり", general: "授業形式で教科を直接指導", harukoko: "保護者経由でそっと見守り伴走" },
+                  { label: "お子さんとの関わり", general: "授業形式で教科を直接指導", harukoko: "無理なく学べる計画設計\nわからない問題の質問対応" },
                   { label: "保護者サポート", general: "定期的な進捗報告が一般的", harukoko: "お悩み相談・学校対応の伴走" },
                   { label: "出席扱い対応", general: "基本はご家庭にお任せ", harukoko: "「すらら」を活用した安心サポート\n（学校相談のポイント・学習レポート作成等）" },
                 ].map((row, i) => (
