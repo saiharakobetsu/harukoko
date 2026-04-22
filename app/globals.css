@@ -47,6 +47,9 @@ a {
 
 a:hover { opacity: 0.8; }
 
+.logo-link { transition: opacity 0.2s; }
+.logo-link:hover { opacity: 0.75; }
+
 img { max-width: 100%; height: auto; }
 
 .inner {

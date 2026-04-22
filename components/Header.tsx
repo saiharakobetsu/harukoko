@@ -33,7 +33,8 @@ export default function Header() {
         height: "64px",
       }}>
         {/* ロゴ */}
-        <Link href="/" style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+        <Link href="/" style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }}
+          className="logo-link">
           <Image src="/logo.png" alt="はるここ ロゴ" width={48} height={48} style={{ objectFit: "contain" }} />
           <span style={{
             fontWeight: "bold",
