@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useCallback } from "react";
 
 const navItems = [
   { label: "ホーム",         href: "/" },
@@ -14,6 +14,15 @@ const navItems = [
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+
+  // "/" をクリックしたとき、すでにトップページにいればスムーズにトップへ戻る
+  const handleTopClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (window.location.pathname === "/") {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+    setOpen(false);
+  }, []);
 
   return (
     <header style={{
@@ -33,7 +42,7 @@ export default function Header() {
         height: "64px",
       }}>
         {/* ロゴ */}
-        <Link href="/" style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }}
+        <Link href="/" onClick={handleTopClick} style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }}
           className="logo-link">
           <Image src="/logo.png" alt="はるここ ロゴ" width={48} height={48} style={{ objectFit: "contain" }} />
           <span style={{
@@ -48,11 +57,13 @@ export default function Header() {
         <nav style={{ display: "flex", gap: "24px", alignItems: "center" }}
           className="pc-nav">
           {navItems.map((item) => (
-            <Link key={item.href} href={item.href} style={{
-              fontSize: "15px",
-              fontWeight: "bold",
-              color: "#555",
-            }}>
+            <Link key={item.href} href={item.href}
+              onClick={item.href === "/" ? handleTopClick : undefined}
+              style={{
+                fontSize: "15px",
+                fontWeight: "bold",
+                color: "#555",
+              }}>
               {item.label}
             </Link>
           ))}
@@ -104,7 +115,7 @@ export default function Header() {
         }}>
           {navItems.map((item) => (
             <Link key={item.href} href={item.href}
-              onClick={() => setOpen(false)}
+              onClick={item.href === "/" ? handleTopClick : () => setOpen(false)}
               style={{ fontSize: "16px", fontWeight: "bold", color: "#555", padding: "4px 0" }}>
               {item.label}
             </Link>
