@@ -79,7 +79,7 @@ export default function Home() {
   return (
     <>
       {/* ===== ヒーロー ===== */}
-      <section style={{
+      <section className="hero-sp" style={{
         position: "relative",
         backgroundImage: "url('/hero.png')",
         backgroundSize: "cover",

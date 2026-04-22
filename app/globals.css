@@ -720,4 +720,5 @@ a.btn-outline:hover {
   }
   h2.section-title { font-size: 22px; }
   .feature-grid { grid-template-columns: 1fr; }
+  .hero-sp { background-image: url('/hero-sp.png') !important; background-position: center top !important; }
 }
