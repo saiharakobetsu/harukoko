@@ -6,9 +6,9 @@ import { useForm } from "react-hook-form";
 type FormData = {
   childName: string;
   nameKana: string;
-  email: string;
-  phone: string;
   grade: string;
+  email: string;
+  phone?: string;
   message: string;
 };
 
@@ -19,13 +19,53 @@ const grades = [
   "その他",
 ];
 
+const sourceOptions = [
+  "ホームページを見て",
+  "知人・友人の紹介で",
+  "通っていた塾の紹介で",
+  "その他",
+];
+
+const surveyOptions = [
+  "自宅で学習できる環境を整えたい",
+  "無理のないペースで学んでほしい",
+  "家庭学習の仕方が分からない",
+  "出席扱い制度を活用したい",
+  "復学を目指している",
+  "オンライン個別面談を受けたい",
+  "無料体験を受けたい",
+];
+
+const badgeStyle = (type: "required" | "optional"): React.CSSProperties => ({
+  display: "inline-block",
+  fontSize: "11px",
+  fontWeight: "bold",
+  padding: "1px 7px",
+  borderRadius: "3px",
+  marginLeft: "6px",
+  verticalAlign: "middle",
+  background: type === "required" ? "var(--color-orange)" : "#ccc",
+  color: "#fff",
+});
+
 export default function ContactPage() {
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [sources, setSources] = useState<string[]>([]);
+  const [surveys, setSurveys] = useState<string[]>([]);
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<FormData>();
+
+  const toggleCheck = (
+    value: string,
+    list: string[],
+    setList: React.Dispatch<React.SetStateAction<string[]>>
+  ) => {
+    setList(list.includes(value) ? list.filter((v) => v !== value) : [...list, value]);
+  };
 
   const onSubmit = async (data: FormData) => {
     setStatus("sending");
@@ -33,7 +73,7 @@ export default function ContactPage() {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, source: sources, survey: surveys }),
       });
       if (res.ok) {
         setStatus("success");
@@ -80,10 +120,12 @@ export default function ContactPage() {
 
           {status !== "success" && (
             <form onSubmit={handleSubmit(onSubmit)} noValidate>
+
+              {/* ① お子さまのお名前 */}
               <div className="form-group">
                 <label>
                   お子さまのお名前
-                  <span className="required">必須</span>
+                  <span style={badgeStyle("required")}>必須</span>
                 </label>
                 <input
                   type="text"
@@ -93,10 +135,11 @@ export default function ContactPage() {
                 {errors.childName && <p className="form-error">{errors.childName.message}</p>}
               </div>
 
+              {/* ② お子さまのお名前（カナ） */}
               <div className="form-group">
                 <label>
-                  お名前（カナ）
-                  <span className="required">必須</span>
+                  お子さまのお名前（カナ）
+                  <span style={badgeStyle("required")}>必須</span>
                 </label>
                 <input
                   type="text"
@@ -106,10 +149,26 @@ export default function ContactPage() {
                 {errors.nameKana && <p className="form-error">{errors.nameKana.message}</p>}
               </div>
 
+              {/* ③ 学年 */}
+              <div className="form-group">
+                <label>
+                  学年
+                  <span style={badgeStyle("required")}>必須</span>
+                </label>
+                <select {...register("grade", { required: "学年を選択してください" })}>
+                  <option value="">-- 選択してください --</option>
+                  {grades.map((g) => (
+                    <option key={g} value={g}>{g}</option>
+                  ))}
+                </select>
+                {errors.grade && <p className="form-error">{errors.grade.message}</p>}
+              </div>
+
+              {/* ④ メールアドレス */}
               <div className="form-group">
                 <label>
                   メールアドレス
-                  <span className="required">必須</span>
+                  <span style={badgeStyle("required")}>必須</span>
                 </label>
                 <input
                   type="email"
@@ -122,35 +181,67 @@ export default function ContactPage() {
                 {errors.email && <p className="form-error">{errors.email.message}</p>}
               </div>
 
+              {/* ⑤ 電話番号（任意） */}
               <div className="form-group">
                 <label>
                   電話番号
-                  <span className="required">必須</span>
+                  <span style={badgeStyle("optional")}>任意</span>
                 </label>
                 <input
                   type="tel"
                   placeholder="例：090-0000-0000"
-                  {...register("phone", { required: "電話番号を入力してください" })}
+                  {...register("phone")}
                 />
-                {errors.phone && <p className="form-error">{errors.phone.message}</p>}
               </div>
 
+              {/* ⑥ はるここを知ったきっかけ */}
+              <div className="form-group">
+                <label style={{ marginBottom: "12px", display: "block" }}>
+                  はるここを知ったきっかけ
+                  <span style={badgeStyle("optional")}>任意・複数選択可</span>
+                </label>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: "10px 24px" }}>
+                  {sourceOptions.map((opt) => (
+                    <label key={opt} style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "15px", color: "#444", cursor: "pointer", fontWeight: "normal" }}>
+                      <input
+                        type="checkbox"
+                        checked={sources.includes(opt)}
+                        onChange={() => toggleCheck(opt, sources, setSources)}
+                        style={{ width: "16px", height: "16px", accentColor: "var(--color-green)", cursor: "pointer" }}
+                      />
+                      {opt}
+                    </label>
+                  ))}
+                </div>
+              </div>
+
+              {/* ⑦ アンケート */}
+              <div className="form-group">
+                <label style={{ marginBottom: "12px", display: "block" }}>
+                  アンケート
+                  <span style={badgeStyle("optional")}>任意・複数選択可</span>
+                </label>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: "10px 24px" }}>
+                  {surveyOptions.map((opt) => (
+                    <label key={opt} style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "15px", color: "#444", cursor: "pointer", fontWeight: "normal" }}>
+                      <input
+                        type="checkbox"
+                        checked={surveys.includes(opt)}
+                        onChange={() => toggleCheck(opt, surveys, setSurveys)}
+                        style={{ width: "16px", height: "16px", accentColor: "var(--color-green)", cursor: "pointer" }}
+                      />
+                      {opt}
+                    </label>
+                  ))}
+                </div>
+              </div>
+
+              {/* ⑧ ご相談内容 */}
               <div className="form-group">
                 <label>
-                  学年
-                  <span className="required">必須</span>
+                  ご相談内容・ご質問
+                  <span style={badgeStyle("optional")}>任意</span>
                 </label>
-                <select {...register("grade", { required: "学年を選択してください" })}>
-                  <option value="">-- 選択してください --</option>
-                  {grades.map((g) => (
-                    <option key={g} value={g}>{g}</option>
-                  ))}
-                </select>
-                {errors.grade && <p className="form-error">{errors.grade.message}</p>}
-              </div>
-
-              <div className="form-group">
-                <label>ご相談内容・ご質問</label>
                 <textarea
                   rows={5}
                   placeholder="現在の状況やご希望など、なんでもお気軽にお書きください。"
