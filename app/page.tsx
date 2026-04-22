@@ -54,16 +54,20 @@ const prices = [
 
 const faqs = [
   {
-    q: "不登校の期間が長くても大丈夫ですか？",
-    a: "はい、大丈夫です。学力や生活リズムを問わず、今のお子さんの状態からスタートします。",
+    q: "勉強の無理強いはしませんか？",
+    a: "決してしません。はるここが最も大切にしているのは「安心して学べる土台づくり」です。心が疲れている時に必要なのは休息。焦らずゆっくり進めていきましょう。",
   },
   {
-    q: "親が仕事中でも利用できますか？",
-    a: "お子さんだけで学習できる仕組みになっています。ご不安な点はご相談ください。",
+    q: "パソコンが苦手でも大丈夫ですか？",
+    a: "大丈夫です。「すらら」はマウス操作中心の直感的な設計です。操作に不安がある場合はLINEで随時サポートします。",
+  },
+  {
+    q: "子どもとのやり取りは必須ですか？",
+    a: "いいえ、必須ではありません。基本的に保護者の方とのやり取りが中心です。お子さんが希望する場合はもちろん歓迎します。",
   },
   {
     q: "出席扱いになりますか？",
-    a: "一定の条件のもと、学校に出席扱いとして認められるケースがあります。手続きのご相談にも応じます。",
+    a: "認められる可能性は高いですが、最終的には学校側の判断になります。2024年までのデータで約81%の承認率です。手続きのご相談にも対応します。",
   },
   {
     q: "途中でやめることはできますか？",
@@ -467,7 +471,7 @@ export default function Home() {
       <section id="faq" className="section-light">
         <div className="inner">
           <h2 className="section-title">よくある質問</h2>
-          <div style={{ marginTop: "36px", display: "flex", flexDirection: "column", gap: "20px" }}>
+          <div style={{ marginTop: "36px", display: "flex", flexDirection: "column", gap: "16px" }}>
             {faqs.map((faq, i) => (
               <div key={i} style={{
                 background: "#fff",
@@ -483,6 +487,11 @@ export default function Home() {
                 </p>
               </div>
             ))}
+          </div>
+          <div style={{ textAlign: "center", marginTop: "32px" }}>
+            <Link href="/faq" className="btn-outline">
+              よくある質問をすべて見る →
+            </Link>
           </div>
         </div>
       </section>
