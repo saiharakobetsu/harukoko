@@ -192,7 +192,7 @@ export default function ServicePage() {
       {/* ===== オンライン教材「すらら」について ===== */}
       <section className="section-light">
         <div className="inner" style={{ maxWidth: "760px" }}>
-          <h2 className="section-title">オンライン教材「すらら」について</h2>
+          <h2 className="section-title">オンライン教材「すらら」とは</h2>
           <article style={{
             marginTop: "36px",
             background: "#fff",
