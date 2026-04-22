@@ -720,4 +720,15 @@ a.btn-outline:hover {
   }
   h2.section-title { font-size: 22px; }
   .feature-grid { grid-template-columns: 1fr; }
+
+  /* ヒーロー：モバイルでは画像を見やすく */
+  .hero-section {
+    background-position: center 20% !important;
+    min-height: 520px;
+    display: flex;
+    align-items: center;
+  }
+  .hero-overlay {
+    background: rgba(255,255,255,0.52) !important;
+  }
 }

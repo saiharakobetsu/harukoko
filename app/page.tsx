@@ -79,15 +79,15 @@ export default function Home() {
   return (
     <>
       {/* ===== ヒーロー ===== */}
-      <section style={{
+      <section className="hero-section" style={{
         position: "relative",
         backgroundImage: "url('/hero.png')",
         backgroundSize: "cover",
-        backgroundPosition: "center",
+        backgroundPosition: "center top",
         padding: "80px 5% 64px",
         textAlign: "center",
       }}>
-        <div style={{
+        <div className="hero-overlay" style={{
           position: "absolute",
           inset: 0,
           background: "rgba(255,255,255,0.68)",
