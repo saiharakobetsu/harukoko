@@ -1,5 +1,6 @@
-import Link from "next/link";
 import type { Metadata } from "next";
+import CtaSection from "@/components/CtaSection";
+import PageTitleBar from "@/components/PageTitleBar";
 
 export const metadata: Metadata = {
   title: "サービス内容｜はるここ",
@@ -34,7 +35,6 @@ const steps = [
     paragraphs: [
       "学習状況の共有を通して、お子さまの頑張っている点を確認し、つまずいているところを一緒に整理します。",
       "「やれなかった日」があっても大丈夫です。無理のないペースで進めていきましょう。",
-      "また、学習のご様子などもわかる範囲で教えてください。お子さんの頑張れているところを見つけ、",
     ],
     accent: {
       lead: "保護者の方と二人三脚で、",
@@ -64,10 +64,7 @@ const steps = [
 export default function ServicePage() {
   return (
     <>
-      {/* ===== ページタイトル ===== */}
-      <div className="page-title-bar">
-        <h1>サービス内容</h1>
-      </div>
+      <PageTitleBar title="サービス内容" />
 
       {/* ===== イントロ ===== */}
       <section className="section-white">
@@ -263,7 +260,7 @@ export default function ServicePage() {
                 {[
                   { label: "主な目的", general: "学力の向上・志望校合格", harukoko: "安心して学べる土台作り" },
                   { label: "学習時間", general: "決められた時間に授業を受ける", harukoko: "好きな時間にいつでも学べる" },
-                  { label: "お子さんとの関わり", general: "教科の内容を「教える」", harukoko: "無理のない柔軟な学習計画" },
+                  { label: "お子さんとの関わり", general: "授業形式で教科を直接指導", harukoko: "保護者経由でそっと見守り伴走" },
                   { label: "保護者サポート", general: "定期的な進捗報告が一般的", harukoko: "お悩み相談・学校対応の伴走" },
                   { label: "出席扱い対応", general: "基本はご家庭にお任せ", harukoko: "「すらら」を活用した安心サポート\n（学校相談のポイント・学習レポート作成等）" },
                 ].map((row, i) => (
@@ -316,35 +313,7 @@ export default function ServicePage() {
         </div>
       </section>
 
-      {/* ===== CTA ===== */}
-      <section style={{
-        background: "var(--color-green)",
-        padding: "64px 5%",
-        textAlign: "center",
-        color: "#fff",
-      }}>
-        <div style={{ maxWidth: "600px", margin: "0 auto" }}>
-          <h2 style={{ fontSize: "24px", fontWeight: "bold", marginBottom: "16px" }}>
-            まずは無料でご相談ください
-          </h2>
-          <p style={{ fontSize: "15px", marginBottom: "28px", opacity: 0.95, lineHeight: 1.9 }}>
-            お子さんの状況をお聞きし、はるここが合うかどうかを<br />
-            一緒に考えます。無理な勧誘は一切しません。
-          </p>
-          <Link href="/contact" style={{
-            display: "inline-block",
-            background: "#fff",
-            color: "var(--color-green)",
-            fontWeight: "bold",
-            fontSize: "17px",
-            padding: "14px 40px",
-            borderRadius: "50px",
-            borderBottom: "3px solid rgba(0,0,0,0.1)",
-          }}>
-            お問い合わせ・無料相談
-          </Link>
-        </div>
-      </section>
+      <CtaSection />
     </>
   );
 }

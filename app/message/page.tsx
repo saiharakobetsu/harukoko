@@ -1,5 +1,6 @@
-import Link from "next/link";
 import type { Metadata } from "next";
+import CtaSection from "@/components/CtaSection";
+import PageTitleBar from "@/components/PageTitleBar";
 
 export const metadata: Metadata = {
   title: "代表の想い｜はるここ",
@@ -10,10 +11,7 @@ export const metadata: Metadata = {
 export default function MessagePage() {
   return (
     <>
-      {/* ===== ページタイトル ===== */}
-      <div className="page-title-bar">
-        <h1>代表の想い</h1>
-      </div>
+      <PageTitleBar title="代表の想い" />
 
       {/* ===== 本文 ===== */}
       <section className="section-white">
@@ -86,35 +84,7 @@ export default function MessagePage() {
         </div>
       </section>
 
-      {/* ===== CTA ===== */}
-      <section style={{
-        background: "var(--color-green)",
-        padding: "64px 5%",
-        textAlign: "center",
-        color: "#fff",
-      }}>
-        <div style={{ maxWidth: "600px", margin: "0 auto" }}>
-          <h2 style={{ fontSize: "24px", fontWeight: "bold", marginBottom: "16px" }}>
-            まずは無料でご相談ください
-          </h2>
-          <p style={{ fontSize: "15px", marginBottom: "28px", opacity: 0.95, lineHeight: 1.9 }}>
-            お子さんの状況をお聞きし、はるここが合うかどうかを<br />
-            一緒に考えます。無理な勧誘は一切しません。
-          </p>
-          <Link href="/contact" style={{
-            display: "inline-block",
-            background: "#fff",
-            color: "var(--color-green)",
-            fontWeight: "bold",
-            fontSize: "17px",
-            padding: "14px 40px",
-            borderRadius: "50px",
-            borderBottom: "3px solid rgba(0,0,0,0.1)",
-          }}>
-            お問い合わせ・無料相談
-          </Link>
-        </div>
-      </section>
+      <CtaSection />
     </>
   );
 }

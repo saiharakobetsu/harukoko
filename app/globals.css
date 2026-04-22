@@ -134,6 +134,25 @@ button.btn-main {
 a.btn-main:hover,
 button.btn-main:hover { opacity: 0.85; }
 
+a.btn-white,
+button.btn-white {
+  display: inline-block;
+  background: #fff;
+  color: var(--color-green);
+  font-weight: bold;
+  font-size: 17px;
+  padding: 14px 40px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  border-bottom: 3px solid rgba(0,0,0,0.1);
+  text-align: center;
+  transition: opacity 0.2s;
+}
+
+a.btn-white:hover,
+button.btn-white:hover { opacity: 0.85; }
+
 a.btn-outline {
   display: inline-block;
   color: var(--color-green);

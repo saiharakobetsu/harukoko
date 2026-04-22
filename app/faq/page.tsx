@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import PageTitleBar from "@/components/PageTitleBar";
 
 export const metadata: Metadata = {
   title: "よくある質問｜はるここ",
@@ -100,9 +101,7 @@ const faqs = [
 export default function FaqPage() {
   return (
     <>
-      <div className="page-title-bar">
-        <h1>よくある質問</h1>
-      </div>
+      <PageTitleBar title="よくある質問" />
 
       <section className="section-white">
         <div className="inner" style={{ maxWidth: "760px" }}>

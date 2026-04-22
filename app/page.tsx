@@ -1,4 +1,5 @@
 import Link from "next/link";
+import CtaSection from "@/components/CtaSection";
 
 const features = [
   {
@@ -302,42 +303,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== 実績・数字 ===== */}
-      <section style={{
-        background: "var(--color-green)",
-        padding: "56px 5%",
-      }}>
-        <div style={{
-          maxWidth: "800px",
-          margin: "0 auto",
-          display: "flex",
-          justifyContent: "space-around",
-          alignItems: "center",
-          flexWrap: "wrap",
-          gap: "32px",
-        }}>
-          {[
-            { num: "170名以上", label: "不登校サポート累計" },
-            { num: "11年以上", label: "教育業界経験" },
-            { num: "出席扱い", label: "サポート対応可" },
-          ].map((item) => (
-            <div key={item.label} style={{ textAlign: "center", color: "#fff" }}>
-              <p style={{
-                fontSize: "clamp(28px, 5vw, 42px)",
-                fontWeight: "bold",
-                lineHeight: "1.2",
-                marginBottom: "8px",
-              }}>{item.num}</p>
-              <p style={{
-                fontSize: "14px",
-                opacity: 0.9,
-                letterSpacing: "0.05em",
-              }}>{item.label}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* ===== 代表紹介 ===== */}
       <section className="section-white">
         <div className="inner">
@@ -393,6 +358,42 @@ export default function Home() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* ===== 実績・数字 ===== */}
+      <section style={{
+        background: "var(--color-green)",
+        padding: "56px 5%",
+      }}>
+        <div style={{
+          maxWidth: "800px",
+          margin: "0 auto",
+          display: "flex",
+          justifyContent: "space-around",
+          alignItems: "center",
+          flexWrap: "wrap",
+          gap: "32px",
+        }}>
+          {[
+            { num: "170名以上", label: "不登校サポート累計" },
+            { num: "11年以上", label: "教育業界経験" },
+            { num: "約81%",   label: "出席扱い承認率" },
+          ].map((item) => (
+            <div key={item.label} style={{ textAlign: "center", color: "#fff" }}>
+              <p style={{
+                fontSize: "clamp(28px, 5vw, 42px)",
+                fontWeight: "bold",
+                lineHeight: "1.2",
+                marginBottom: "8px",
+              }}>{item.num}</p>
+              <p style={{
+                fontSize: "14px",
+                opacity: 0.9,
+                letterSpacing: "0.05em",
+              }}>{item.label}</p>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -496,34 +497,7 @@ export default function Home() {
       </section>
 
       {/* ===== CTA ===== */}
-      <section style={{
-        background: "var(--color-green)",
-        padding: "64px 5%",
-        textAlign: "center",
-        color: "#fff",
-      }}>
-        <div style={{ maxWidth: "600px", margin: "0 auto" }}>
-          <h2 style={{ fontSize: "26px", fontWeight: "bold", marginBottom: "16px" }}>
-            まずは無料でご相談ください
-          </h2>
-          <p style={{ fontSize: "16px", marginBottom: "32px", opacity: 0.9, lineHeight: 1.8 }}>
-            お子さんの状況をお聞きし、はるここが合うかどうかを<br />
-            一緒に考えます。無理な勧誘は一切しません。
-          </p>
-          <Link href="/contact" style={{
-            display: "inline-block",
-            background: "#fff",
-            color: "var(--color-green)",
-            fontWeight: "bold",
-            fontSize: "17px",
-            padding: "14px 40px",
-            borderRadius: "50px",
-            borderBottom: "3px solid rgba(0,0,0,0.1)",
-          }}>
-            お問い合わせ・無料相談
-          </Link>
-        </div>
-      </section>
+      <CtaSection />
     </>
   );
 }
