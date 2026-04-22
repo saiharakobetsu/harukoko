@@ -79,15 +79,15 @@ export default function Home() {
   return (
     <>
       {/* ===== ヒーロー ===== */}
-      <section className="hero-section" style={{
+      <section style={{
         position: "relative",
         backgroundImage: "url('/hero.png')",
         backgroundSize: "cover",
-        backgroundPosition: "center top",
+        backgroundPosition: "center",
         padding: "80px 5% 64px",
         textAlign: "center",
       }}>
-        <div className="hero-overlay" style={{
+        <div style={{
           position: "absolute",
           inset: 0,
           background: "rgba(255,255,255,0.68)",
@@ -131,7 +131,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* ===== 共感セクション ===== */}
       <section style={{
         background: "#fff",
