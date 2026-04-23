@@ -94,28 +94,18 @@ export default function Home() {
           background: "rgba(255,255,255,0.68)",
         }} />
         <div style={{ maxWidth: "720px", margin: "0 auto", position: "relative", zIndex: 1 }}>
-          <div style={{ display: "flex", gap: "10px", justifyContent: "center", flexWrap: "wrap", marginBottom: "24px" }}>
-            <span style={{
-              background: "var(--color-orange)",
-              color: "#fff",
-              fontSize: "14px",
-              fontWeight: "bold",
-              padding: "4px 16px",
-              borderRadius: "50px",
-            }}>
-              不登校の小中学生専門
-            </span>
-            <span style={{
-              background: "var(--color-green)",
-              color: "#fff",
-              fontSize: "14px",
-              fontWeight: "bold",
-              padding: "4px 16px",
-              borderRadius: "50px",
-            }}>
-              おうちで完結するサポート
-            </span>
-          </div>
+          <p style={{
+            display: "inline-block",
+            background: "var(--color-orange)",
+            color: "#fff",
+            fontSize: "14px",
+            fontWeight: "bold",
+            padding: "4px 16px",
+            borderRadius: "50px",
+            marginBottom: "24px",
+          }}>
+            不登校の小中学生専門
+          </p>
           <h1 style={{
             fontSize: "clamp(26px, 5vw, 40px)",
             fontWeight: "bold",
@@ -132,9 +122,9 @@ export default function Home() {
             lineHeight: "1.85",
             marginBottom: "36px",
           }}>
-            自宅から、お子さんのペースで学び続けられる。<br />
-            170名以上の不登校家庭を支えてきた<br />
-            おうちで続ける、個別学習サポートです。
+            一人ひとりのペースに合わせた学習計画と、<br />
+            170名以上の不登校家庭を支えてきた個別サポート。<br />
+            お子さんとご家族に寄り添います。
           </p>
           <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
             <Link href="/contact" className="btn-main">無料相談・体験授業へ</Link>
