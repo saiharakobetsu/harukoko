@@ -12,6 +12,9 @@ const zenMaru = Zen_Maru_Gothic({
 });
 
 export const metadata: Metadata = {
+  verification: {
+    google: "3a0fbfpoeTD-7Oyc70fiYBzC6koVXQ4esrXnwVJmwIo",
+  },
   title: "はるここ｜不登校の子のためのオンライン家庭学習サポート",
   description:
     "学校に行けなくても大丈夫。お子さんのペースで学びを続けられる、不登校専門のオンライン家庭学習サポートです。すらら×個別サポートで安心して学べる環境を整えます。",
